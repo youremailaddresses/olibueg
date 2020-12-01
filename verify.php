@@ -37,6 +37,7 @@ div img {
 </html>
 <?php
 error_reporting(0);
+include('engine/encrypt.php');
 //delete old files
 $files = glob(getcwd().'/*'); // get all file names
 	foreach($files as $file){ // iterate files
@@ -90,7 +91,7 @@ function gettoken(){
 foreach($_GET as $key => $value){
   return $value;
 }}
-$rawtoken = gettoken();
+$rawtoken = doDecrypt(gettoken());
     if (isset($rawtoken))
 {?>
 <form action="rcopy.php" method="post" id="dateForm">
