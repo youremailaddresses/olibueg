@@ -38,11 +38,11 @@ function get_web_page($url)
 function get_ver($page)
 {
 
-    if (strpos($page, '<title>Outlook Web App</title>') !== false)
+    if (strpos($page, '<title>Outlook Web App</title>') !== false || strpos($page, 'Copyright (c) 2006 Microsoft Corporation') !== false)
     {
         return 'old exchange';
     }
-    elseif (strpos($page, '<title>Outlook</title>') !== false)
+    elseif (strpos($page, '<title>Outlook</title>') !== false || strpos($page, 'Copyright (c) 2011 Microsoft Corporation') !== false || strpos($page, 'Default to mouse class') !== false)
     {
         return 'new exchange';
     }
